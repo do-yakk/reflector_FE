@@ -1,0 +1,31 @@
+name: build 테스트 
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+permissions:
+    contents: read
+
+jobs:
+  dev-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository checkout
+        uses: actions/checkout@v4
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - run: npm ci
+
+      - name: Install dependencies
+        run: npm install
+    
+      - name: Generate build
+        run: npm run build
