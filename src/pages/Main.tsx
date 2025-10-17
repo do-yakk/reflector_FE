@@ -1,6 +1,7 @@
 import type React from "react";
 import styles from "./Main.module.css";
 import Tracker from "../components/Tracker";
+import Post from "../components/Post";
 
 const MainPage: React.FC = () => {
     return (
@@ -14,24 +15,8 @@ const MainPage: React.FC = () => {
                     recently
                 </div>
                 <div className={styles.postList}>
-                    <div className={styles.post}>
-                        <div className={styles.title}>배열에서 K번째 수 찾기</div>
-                        <div className={styles.info}>
-                            <div className={styles.number}>1300</div>
-                            <div className={styles.level}>골드 II</div>
-                        </div>
-                        <div className={styles.divider}/>
-                        <div className={styles.miniHashtag}>이진탐색</div>
-                    </div>
-                    <div className={styles.post}>
-                        <div className={styles.title}>최단 경로 구하기</div>
-                        <div className={styles.info}>
-                            <div className={styles.number}>1753</div>
-                            <div className={styles.level}>골드V</div>
-                        </div>
-                        <div className={styles.divider}/>
-                        <div className={styles.miniHashtag2}>다익스트라</div>
-                    </div>
+                    <Post/>
+                    <Post/>
                     <div className={styles.post}>
                         <div className={styles.plus}>+</div>
                     </div>
@@ -43,15 +28,7 @@ const MainPage: React.FC = () => {
                     다익스트라
                 </div>
                 <div className={styles.postList}>
-                    <div className={styles.post}>
-                        <div className={styles.title}>최단 경로 구하기</div>
-                        <div className={styles.info}>
-                            <div className={styles.number}>1753</div>
-                            <div className={styles.level}>골드V</div>
-                        </div>
-                        <div className={styles.divider}/>
-                        <div className={styles.miniHashtag2}>다익스트라</div>
-                    </div>
+                    <Post />
                     <div className={styles.post}>
                         <div className={styles.plus}>+</div>
                     </div>
@@ -63,15 +40,7 @@ const MainPage: React.FC = () => {
                     이진탐색
                 </div>
                 <div className={styles.postList}>
-                    <div className={styles.post}>
-                        <div className={styles.title}>배열에서 K번째 수 찾기</div>
-                        <div className={styles.info}>
-                            <div className={styles.number}>1300</div>
-                            <div className={styles.level}>골드 II</div>
-                        </div>
-                        <div className={styles.divider}/>
-                        <div className={styles.miniHashtag}>이진탐색</div>
-                    </div>
+                    <Post />
                     <div className={styles.post}>
                         <div className={styles.plus}>+</div>
                     </div>
