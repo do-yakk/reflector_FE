@@ -45,22 +45,7 @@
     align-items: center;
 }
 
-.post {
-    width: 250px;
-    height: 123px;
-    background-color: #ffffff;
-    margin-top: 12px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 13px 10px;
-}
-
 .postList {
     display: flex;
     gap: 21px;
-}
-.plus {
-    color: #d5d5d5;
-    font-size: 20px;
-    margin: 33px 105px;
 }

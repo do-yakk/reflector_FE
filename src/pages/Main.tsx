@@ -2,6 +2,7 @@ import type React from "react";
 import styles from "./Main.module.css";
 import Tracker from "../components/Tracker";
 import Post from "../components/Post";
+import CreateButton from "../components/CreateButton";
 
 const MainPage: React.FC = () => {
     return (
@@ -17,9 +18,7 @@ const MainPage: React.FC = () => {
                 <div className={styles.postList}>
                     <Post/>
                     <Post/>
-                    <div className={styles.post}>
-                        <div className={styles.plus}>+</div>
-                    </div>
+                    <CreateButton />
                 </div>
             </div>
             {/* 해시태그1 게시물 컨테이너 */}
@@ -29,9 +28,7 @@ const MainPage: React.FC = () => {
                 </div>
                 <div className={styles.postList}>
                     <Post />
-                    <div className={styles.post}>
-                        <div className={styles.plus}>+</div>
-                    </div>
+                    <CreateButton />
                 </div>
             </div>
             {/* 해시태그2 게시물 컨테이너 */}
@@ -41,9 +38,7 @@ const MainPage: React.FC = () => {
                 </div>
                 <div className={styles.postList}>
                     <Post />
-                    <div className={styles.post}>
-                        <div className={styles.plus}>+</div>
-                    </div>
+                    <CreateButton />
                 </div>
             </div>
             </div>
