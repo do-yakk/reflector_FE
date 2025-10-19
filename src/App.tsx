@@ -1,12 +1,13 @@
 import type React from "react";
-import MainPage from './pages/Main.tsx'
 import './App.css'
+import AppRoutes from "./AppRoutes.tsx";
+import { BrowserRouter } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <>
-      <MainPage></MainPage>
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 

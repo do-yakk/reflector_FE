@@ -45,7 +45,7 @@ const Tracker: React.FC = () => {
                     {displayData.map(day => (
                         <div
                             key={day.date}
-                            className={[styles.trackerCell, styles[`level${day.count}`]].join(' ')}
+                            className={[styles.trackerCell, styles[`level${getLevel(day.count)}`]].join(' ')}
                             title={day.date ? `${day.date}: ${day.count}` : ``}
                         />
                     ))}

@@ -12,7 +12,7 @@ const MainPage: React.FC = () => {
                 {/* 학습 트래커 컨테이너 */}
                 <Tracker />
                 {/* 게시글 목록 */}
-                {sortType.map((tag, i) => (
+                {sortType.map((tag) => (
                     <PostContainer key={tag} hashTag={tag} />
                 ))}
             </div>
