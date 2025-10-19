@@ -2,10 +2,11 @@ import type React from "react";
 import styles from "./PostContainer.module.css"
 import Post from "./Post";
 import CreateButton from "./CreateButton";
+import { getHashtagColor } from "../../constants/hashtagColors";
+
 
 interface PostContainerProps {
     hashTag: string;
-    index?: number;
 }
 
 interface PostProps {
@@ -15,9 +16,7 @@ interface PostProps {
     hashTag: string;
 }
 
-const PostContainer: React.FC<PostContainerProps> = ({ hashTag , index = 0 }) => {
-    const colors = ['#d4ebff', '#D5EDCC', '#FFE2E7']
-    const color = colors[index % colors.length];
+const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
     const posts: PostProps[] = [
         {
             title: "배열에서 K번째 수 찾기",
@@ -36,7 +35,7 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag , index = 0 }) =>
     return (
         <>
         <div className={styles.postContainer}>
-            <div className={styles.hashTag} style={{ backgroundColor: color }}>
+            <div className={styles.hashTag} style={{ backgroundColor: getHashtagColor(hashTag) }}>
                 {hashTag}
             </div>
             <div className={styles.postList}>
