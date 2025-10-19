@@ -5,33 +5,10 @@
     margin-top: 23px;
 }
 
-.recentlyTag {
-    display: flex;
-    width: 88px;
-    height: 32px;
-    background-color: #d4ebff;
-    border-radius: 7px;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-}
-
-.hashTag1 {
-    display: flex;
-    width: 88px;
-    height: 32px;
+.hashTag {
+    display: inline-flex;
+    padding: 5px 10px;
     background-color: #D5EDCC;
-    border-radius: 7px;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-}
-
-.hashTag2 {
-    display: flex;
-    width: 88px;
-    height: 32px;
-    background-color: #FFE2E7;
     border-radius: 7px;
     font-weight: bold;
     justify-content: center;
