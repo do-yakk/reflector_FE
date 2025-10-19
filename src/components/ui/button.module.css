@@ -1,0 +1,31 @@
+.back {
+  font-size: 25px;
+  font-weight: 500;
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 20px 20px;
+  cursor: pointer;
+}
+
+.add {
+  font-size: 25px;
+  font-weight: 400;
+  border-radius: 8px;
+  background-color: transparent;
+  color: gray;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.hashtag {
+  color: black;
+  background-color: #D9D9D9;
+  font-size: 25px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 14px;
+  white-space: nowrap;
+  margin-right: 30px;
+}
