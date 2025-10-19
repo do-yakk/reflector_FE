@@ -21,7 +21,7 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
         {
             title: "배열에서 K번째 수 찾기",
             number: 1300,
-            level: "골드 II",
+            level: "실버 II",
             hashTag: "이진탐색"
         }, 
         {

@@ -1,14 +1,14 @@
-const colors = ['#d4ebff', '#D5EDCC', '#FFE2E7']; // 돌려쓸 색상
-const hashtagColorMap: { [key: string]: string } = {}; // 해시태그 -> 색상 매핑
+const colors = ['#d4ebff', '#D5EDCC', '#FFE2E7'];
+const hashtagColorMap: { [key: string]: string } = {};
 
 let colorIndex = 0;
 
 export function getHashtagColor(tag: string): string {
     if (hashtagColorMap[tag]) {
-        return hashtagColorMap[tag]; // 이미 색상이 지정되어 있으면 그대로 반환
+        return hashtagColorMap[tag];
     }
-    const color = colors[colorIndex % colors.length]; // 색상 순환
-    hashtagColorMap[tag] = color; // 새 색상 매핑
+    const color = colors[colorIndex % colors.length];
+    hashtagColorMap[tag] = color;
     colorIndex++;
 
     return color;
