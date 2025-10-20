@@ -1,0 +1,53 @@
+.post {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.label {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1; 
+    color: gray;
+    white-space: nowrap;
+}
+
+.bigLabel {
+    font-size: 25px; 
+    font-weight: 600; 
+    color: black; 
+    border-bottom: 2px solid #007BFF; 
+    display: inline-block; 
+    padding-bottom: 1;
+}
+
+.select {
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: gray;
+    background-color: transparent;
+    text-align: center;
+    appearance: none;
+}
+
+.topBar {
+  display: flex;
+  align-items: baseline;    
+  gap: 16px;                
+  justify-content: flex-start;
+  overflow-x: auto; 
+  margin-bottom: 20px;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.splitLine {
+    height: 1px; 
+    background-color: black; 
+    margin: 20px 0;
+    width: 100%;
+}
