@@ -1,0 +1,21 @@
+.postContainer {
+    height: 170px;
+    box-sizing: border-box;
+    margin-left: 47px;
+    margin-top: 23px;
+}
+
+.hashTag {
+    display: inline-flex;
+    padding: 5px 10px;
+    background-color: #D5EDCC;
+    border-radius: 7px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+.postList {
+    display: flex;
+    gap: 21px;
+}

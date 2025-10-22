@@ -1,0 +1,55 @@
+.post {
+    width: 250px;
+    height: 123px;
+    background-color: #ffffff;
+    margin-top: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 13px 10px;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px 13px;
+}
+
+.number {
+    font-size: 13px;
+    color: #b1b1b1;
+    margin: 0px 13px;
+}
+
+.info {
+    display: flex;
+    margin-bottom: 9px;
+}
+
+.level {
+    display: flex;
+    padding: 0px 5px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+.divider {
+    width: 206px;
+    height: 1px;
+    background-color: black;
+    margin-left: 7px;
+    margin-bottom: 5px;
+}
+
+.miniHashtag {
+    display: inline-flex;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7px;
+}
