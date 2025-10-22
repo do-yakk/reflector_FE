@@ -1,6 +1,6 @@
 import { useState } from "react";
 import update from "immutability-helper";
-import styles from "./block.module.css";
+import styles from "./Block.module.css";
 import type { CreateTextBlockRequest, CreateCodeBlockRequest, Language } from "../../models/Block";
 import { LANGUAGES } from "../../utils/language";
 import { Button } from "./Button";

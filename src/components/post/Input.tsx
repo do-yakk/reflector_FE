@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import styles from "./input.module.css";
+import styles from "./Input.module.css";
 
 type InputVariants = "title" | "plain" | "mini";
 

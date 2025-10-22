@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import type { Site, Level, CreatePostRequest } from "../../models/Post.ts";
 import { LEVEL_BY_SITE, LEVEL_DISPLAY } from "../../utils/level.ts";
 import update from "immutability-helper";
-import styles from "./post.module.css";
+import styles from "./Post.module.css";
 import { Input } from "./Input.tsx";
 
 const Post: React.FC = () => {

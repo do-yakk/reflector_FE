@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import clsx from "clsx";
-import styles from "./button.module.css";
+import styles from "./Button.module.css";
 
 type ButtonVariant = "add" | "back" | "hashtag" ;
 
