@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import type { Site, Level, CreatePostRequest } from "../models/Post.ts";
-import { LEVEL_BY_SITE, LEVEL_DISPLAY } from "../utils/level.ts";
-import { Input } from "../components/ui/input.tsx";
+import type { Site, Level, CreatePostRequest } from "../../models/Post.ts";
+import { LEVEL_BY_SITE, LEVEL_DISPLAY } from "../../utils/level.ts";
 import update from "immutability-helper";
 import styles from "./post.module.css";
+import { Input } from "./Input.tsx";
 
 const Post: React.FC = () => {
     const defaultSite = Object.keys(LEVEL_BY_SITE)[0] as Site;

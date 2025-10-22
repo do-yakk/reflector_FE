@@ -1,10 +1,10 @@
-import { Input } from "../components/ui/input.tsx";
-import { Button } from "../components/ui/button.tsx"
-import { LANGUAGES } from "../utils/language.ts"
 import { useState } from "react";
-import type { CreateTextBlockRequest, Language, CreateCodeBlockRequest } from "../models/Block";
 import update from "immutability-helper";
 import styles from "./block.module.css";
+import type { CreateTextBlockRequest, CreateCodeBlockRequest, Language } from "../../models/Block";
+import { LANGUAGES } from "../../utils/language";
+import { Button } from "./Button";
+import { Input } from "./Input";
 
 
 type BlockVariant = "code" | "text";

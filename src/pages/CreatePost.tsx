@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button } from "../components/ui/button.tsx";
-import { Block } from "../components/block.tsx";
+import { Button } from "../components/post/Button.tsx";
+import { Block } from "../components/post/Block.tsx";
 import styles from "./CreatePost.module.css";
-import Post from "../components/post.tsx";
+import Post from "../components/post/Post.tsx";
 
 type BlockVariant = "code" | "text";
 interface PostBlock {

@@ -1,12 +1,13 @@
 import type React from "react";
 import './App.css'
-import CreatePost from "./pages/CreatePost";
+import AppRoutes from "./AppRoutes.tsx";
+import { BrowserRouter } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <>
-      <CreatePost></CreatePost>
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 
