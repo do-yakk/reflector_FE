@@ -19,9 +19,13 @@ const CreatePostPage: React.FC = () => {
         setBlockId(blockId + 1);
     }
 
+    const handleBackClick = () => {
+        window.history.back();
+    };
+
     return (
         <div className={styles.container}>    
-            <Button variant="back">←</Button>
+            <Button variant="back" onClick={handleBackClick}>←</Button>
             <div className={styles.container}>
                 {/* 문제 기본 정보 */}
                 <Post />      
