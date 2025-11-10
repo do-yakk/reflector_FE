@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { Site, Level, CreatePostRequest } from "../../models/Post.ts";
+import type { Site, Level, PostCommand } from "../../models/Post.ts";
 import { LEVEL_BY_SITE, LEVEL_DISPLAY } from "../../utils/level.ts";
 import update from "immutability-helper";
 import styles from "./Post.module.css";
@@ -7,7 +7,7 @@ import { Input } from "./Input.tsx";
 
 const Post: React.FC = () => {
     const defaultSite = Object.keys(LEVEL_BY_SITE)[0] as Site;
-    const [form, setForm] = useState<CreatePostRequest>({
+    const [form, setForm] = useState<PostCommand>({
         title: "제목을 입력해주세요.",
         site: defaultSite,
         level: LEVEL_BY_SITE[defaultSite][0] as Level,

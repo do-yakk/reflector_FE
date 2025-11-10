@@ -12,7 +12,9 @@ export type Language =
     | "SCALA"
     | "SWIFT"
 
-export interface CreateCodeBlockRequest {
+
+// request
+export interface CodeCommand {
     content: string;
     language: Language;
     perform_time: string;
@@ -20,6 +22,15 @@ export interface CreateCodeBlockRequest {
     hashtags: string[];
 }
 
-export interface CreateTextBlockRequest {
+export interface TextCommand {
     content: string;
+}
+
+// response
+export interface Code {
+
+}
+
+export interface Text {
+
 }

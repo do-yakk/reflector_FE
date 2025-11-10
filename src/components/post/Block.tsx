@@ -1,7 +1,7 @@
 import { useState } from "react";
 import update from "immutability-helper";
 import styles from "./Block.module.css";
-import type { CreateTextBlockRequest, CreateCodeBlockRequest, Language } from "../../models/Block";
+import type { TextCommand, CodeCommand, Language } from "../../models/Block";
 import { LANGUAGES } from "../../utils/language";
 import { Button } from "./Button";
 import { Input } from "./Input";
@@ -14,10 +14,10 @@ interface BlockProps {
 }
 
 export const Block: React.FC<BlockProps> = ({ variant }) => {
-    const [textForm, setText] = useState<CreateTextBlockRequest>({
+    const [textForm, setText] = useState<TextCommand>({
         content: ""
     });
-    const [codeForm, setCode] = useState<CreateCodeBlockRequest>({
+    const [codeForm, setCode] = useState<CodeCommand>({
         content: "",
         language: "" as Language,
         perform_time: "",

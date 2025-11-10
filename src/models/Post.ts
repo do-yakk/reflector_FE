@@ -17,7 +17,9 @@ export type Level =
   | "LEETCODE_MEDIUM"
   | "LEETCODE_HARD";
 
-export interface CreatePostRequest {
+
+// request
+export interface PostCommand {
   site: Site;
   level: Level;
   title: string;
@@ -26,4 +28,13 @@ export interface CreatePostRequest {
   output: string;
   limit_time: string;
   limit_mem: string;
+}
+
+// response
+export interface PostInfo {
+
+}
+
+export interface PostOverview {
+
 }
