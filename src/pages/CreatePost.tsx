@@ -40,6 +40,8 @@ const CreatePostPage: React.FC = () => {
                     <Button variant="add" onClick={() => addBlock("code")}>+ 코드 스니펫 추가</Button>
                     <Button variant="add" onClick={() => addBlock("text")}>+ 해설 추가</Button>
                 </div>
+                {/* 저장 버튼 */}
+                <Button variant="save">완료</Button>
             </div>
         </div>
 
