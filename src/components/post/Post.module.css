@@ -4,7 +4,7 @@
 }
 
 .label {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1; 
     color: gray;
@@ -12,7 +12,7 @@
 }
 
 .bigLabel {
-    font-size: 25px; 
+    font-size: 20px; 
     font-weight: 600; 
     color: black; 
     border-bottom: 2px solid #007BFF; 
@@ -21,7 +21,7 @@
 }
 
 .select {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     border-radius: 6px;
     border: none;
