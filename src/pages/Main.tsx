@@ -2,9 +2,33 @@ import type React from "react";
 import styles from "./Main.module.css";
 import Tracker from "../components/Tracker";
 import PostContainer from "../components/post_overview/PostContainer";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { hashtagList } from "../hooks/postApi";
 
 const MainPage: React.FC = () => {
-    const sortType = ['recently', '다익스트라', '이진탐색'];
+    const navigate = useNavigate();
+    const [sortType, setsortType] = useState([]);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login");
+        }
+
+        handleHashtag();
+    }, []);
+
+    const handleHashtag = async () => {
+        try {
+            const response = await hashtagList();
+            console.log(response);
+            setsortType(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
 
     return (
         <>
