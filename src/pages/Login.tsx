@@ -9,7 +9,6 @@ import { AxiosError } from "axios";
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const isButtonEnabled = email.trim() !== "" && password.trim() !== ""; 
@@ -24,8 +23,6 @@ const LoginPage: React.FC = () => {
     const handleLogin = async () => {
         if (!isButtonEnabled) return;
 
-        setError("");
-
         try {
             const response = await login(email, password);
             console.log(response);
@@ -35,9 +32,9 @@ const LoginPage: React.FC = () => {
             navigate("/");
         } catch (error) {
             if (error instanceof AxiosError) {
-                setError("로그인 실패: " + (error.response?.data?.message || "서버 오류"));
+                console.error("로그인 실패: " + (error.response?.data?.message || "서버 오류"));
             } else {
-                setError("로그인 실패: 알 수 없는 오류");
+                console.error("로그인 실패: 알 수 없는 오류");
             }
         }
 

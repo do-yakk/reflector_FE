@@ -1,7 +1,10 @@
 const colors: { [key: string]: string } = {
   "골드": "#FFF1CD",   
   "실버": "#DBDBDB", 
-  "브론즈": "#E3CEBD" 
+  "브론즈": "#E3CEBD",
+  "Gold": "#FFF1CD",   
+  "Silver": "#DBDBDB", 
+  "Bronze": "#E3CEBD",
 };
 
 export function getLevelColor(tag: string): string {

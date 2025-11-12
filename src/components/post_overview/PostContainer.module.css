@@ -1,8 +1,11 @@
 .postContainer {
-    height: 170px;
+    height: 185px;
     box-sizing: border-box;
     margin-left: 47px;
     margin-top: 23px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
 }
 
 .hashTag {
