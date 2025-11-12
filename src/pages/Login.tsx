@@ -57,7 +57,7 @@ const LoginPage: React.FC = () => {
                     </div>
                     <div className={styles.formContainer}>
                         <div className={styles.formTitle}>비밀번호</div>
-                        <input className={styles.formInput} type="text" placeholder="비밀번호를 입력하세요." value={password} onChange={(e) => {setPassword(e.target.value);}}/>
+                        <input className={styles.formInput} type="password" placeholder="비밀번호를 입력하세요." value={password} onChange={(e) => {setPassword(e.target.value);}}/>
                     </div>
                     <div className={styles.nextButton} onClick={handleLogin}>
                         로그인
