@@ -3,7 +3,7 @@ import { Button } from "../components/post/Button.tsx";
 import { Block } from "../components/post/Block.tsx";
 import Post from "../components/post/Post.tsx";
 import styles from "./CreatePost.module.css";
-import { createPost, createTextBlock, createCodeBlock } from "../api/postApis.ts";
+import { createPost, createTextBlock, createCodeBlock } from "../apis/postApi.ts";
 import type { PostCommand } from "../models/Post.ts";
 import type { TextCommand, CodeCommand } from "../models/Block.ts";
 
@@ -66,7 +66,7 @@ const CreatePostPage: React.FC = () => {
   const handleSave = async () => {
     try {
       const postResp = await createPost(postForm);
-      const postId = postResp.id;
+      const postId = postResp?.postId ?? postResp?.id;
       if (!postId) throw new Error("Post ID 없음");
 
       for (const blk of blocks) {
