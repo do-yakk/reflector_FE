@@ -65,3 +65,32 @@
     white-space: nowrap;
     margin-right: 30px;
 }
+
+.hashtagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.hashtagItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hashtagInput {
+    min-width: 140px;
+}
+
+.removeHashtag {
+    border: none;
+    background: transparent;
+    color: #7a7a7a;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+.removeHashtag:hover {
+    color: #3a3a3a;
+}
