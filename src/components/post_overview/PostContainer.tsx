@@ -3,6 +3,9 @@ import styles from "./PostContainer.module.css"
 import Post from "./Post";
 import CreateButton from "./CreateButton";
 import { getHashtagColor } from "../../constants/hashtagColors";
+import { postList } from "../../apis/postApi";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 interface PostContainerProps {
@@ -10,27 +13,34 @@ interface PostContainerProps {
 }
 
 interface PostProps {
-    title: string;
-    number: number;
-    level: string;
-    hashTag: string;
+    postId: string,
+    site: string,
+    title: string,
+    level: string
 }
 
 const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
-    const posts: PostProps[] = [
-        {
-            title: "배열에서 K번째 수 찾기",
-            number: 1300,
-            level: "실버 II",
-            hashTag: "이진탐색"
-        }, 
-        {
-            title: "최단 거리 찾기",
-            number: 1753,
-            level: "골드 V",
-            hashTag: "다익스트라"
+    const [posts, setPosts] = useState<PostProps[]>([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login");
         }
-    ];
+
+        handlePostList();
+    }, [hashTag]);
+
+    const handlePostList = async () => {
+        try {
+            const response = await postList(hashTag);
+            setPosts(response.data.content);
+            return response.data.content;
+        } catch (error) {
+            console.error("게시글 목록 조회 실패: ", hashTag, error);
+        }
+    }
 
     return (
         <>
@@ -39,8 +49,8 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
                 {hashTag}
             </div>
             <div className={styles.postList}>
-                {posts.map((post, i) => (
-                    <Post key={i} title={post.title} number={post.number} level={post.level} hashTag={post.hashTag}/>
+                {posts.map((post) => (
+                    <Post key={post.postId} title={post.title} number={1000} level={post.level} hashTag={hashTag}/>
                 ))}
                 <CreateButton />
             </div>

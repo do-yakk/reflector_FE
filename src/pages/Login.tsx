@@ -1,8 +1,47 @@
 import type React from "react";
 import styles from "./Login.module.css";
 import Logo from "../assets/logo.png";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { login } from "../apis/userApi";
+import { AxiosError } from "axios";
 
 const LoginPage: React.FC = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
+    const isButtonEnabled = email.trim() !== "" && password.trim() !== ""; 
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/");
+        }
+    }, []);
+
+    const handleLogin = async () => {
+        if (!isButtonEnabled) return;
+
+        try {
+            const response = await login(email, password);
+            console.log(response);
+            const {accessToken} = response.data.data;
+            localStorage.setItem("token", accessToken);
+
+            navigate("/");
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                console.error("로그인 실패: " + (error.response?.data?.message || "서버 오류"));
+            } else {
+                console.error("로그인 실패: 알 수 없는 오류");
+            }
+        }
+
+
+    }
+
+
     return (
         <>
             <div className={styles.container}>
@@ -14,13 +53,13 @@ const LoginPage: React.FC = () => {
                 <div className={styles.loginForm}>
                     <div className={styles.formContainer}>
                         <div className={styles.formTitle}>이메일</div>
-                        <input className={styles.formInput} type="text" placeholder="이메일을 입력하세요." />
+                        <input className={styles.formInput} type="text" placeholder="이메일을 입력하세요." value={email} onChange={(e) => {setEmail(e.target.value);}}/>
                     </div>
                     <div className={styles.formContainer}>
                         <div className={styles.formTitle}>비밀번호</div>
-                        <input className={styles.formInput} type="text" placeholder="비밀번호를 입력하세요." />
+                        <input className={styles.formInput} type="password" placeholder="비밀번호를 입력하세요." value={password} onChange={(e) => {setPassword(e.target.value);}}/>
                     </div>
-                    <div className={styles.nextButton}>
+                    <div className={styles.nextButton} onClick={handleLogin}>
                         로그인
                     </div>
                 </div>
