@@ -1,29 +1,47 @@
 import type React from "react";
 import styles from "./Tracker.module.css";
+import { useState, useEffect } from "react";
+import { trackerData } from "../apis/userApi";
+import { useNavigate } from "react-router-dom";
 
 interface DayData {
   date: string;     // YYYY-MM-DD
   count: number;    // 활동 횟수
 }
 
-type YearData = DayData[]; 
-
 const Tracker: React.FC = () => {
-    const yearData: YearData = [
-        { date: '2025-01-01', count: 2 },
-        { date: '2025-01-02', count: 4 },
-        { date: '2025-10-17', count: 3 }
-    ];
 
     const startDate = new Date("2025-01-01");
     const daysInYear = 365;
+
+    const navigate = useNavigate();
+    const [data, setData] = useState<DayData[]>([]);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login");
+        }
+
+        handleTrackerDate();
+    }, []);
+
+    const handleTrackerDate = async () => {
+        try {
+            const response = await trackerData();
+            setData(response.data);
+            return response.data;
+        } catch (error) {
+            console.error("트래커 데이터 불러오기 실패: ", error);
+        }
+    }
 
     const displayData = Array.from({ length: daysInYear }, (_, i) => {
     const date = new Date(startDate);
     date.setDate(startDate.getDate() + i);
     const dateString = date.toISOString().slice(0, 10);
 
-    const dayData = yearData.find(d => d.date === dateString);
+    const dayData = data.find(d => d.date === dateString);
     const count = dayData ? dayData.count : 0;
 
     return { date: dateString, count };
