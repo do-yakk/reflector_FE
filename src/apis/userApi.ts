@@ -16,3 +16,14 @@ export const login = async (email: string, password: string): Promise<any> => {
       throw error;
     }
 }
+
+export const trackerData = async (): Promise<any> => {
+    try {
+        const year = new Date().getFullYear();
+        const response = await api.get(`/users/study-tracker/${year}`);
+        return response.data;
+    } catch (error) {
+        console.error('트래커 데이터 조회 실패: ', error);
+        throw error;
+    }
+}

@@ -3,7 +3,7 @@ import styles from "./Login.module.css";
 import Logo from "../assets/logo.png";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../hooks/userApi";
+import { login } from "../apis/userApi";
 import { AxiosError } from "axios";
 
 const LoginPage: React.FC = () => {

@@ -3,7 +3,7 @@ import styles from "./PostContainer.module.css"
 import Post from "./Post";
 import CreateButton from "./CreateButton";
 import { getHashtagColor } from "../../constants/hashtagColors";
-import { postList } from "../../hooks/postApi";
+import { postList } from "../../apis/postApi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -49,7 +49,7 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
                 {hashTag}
             </div>
             <div className={styles.postList}>
-                {posts.map((post, i) => (
+                {posts.map((post) => (
                     <Post key={post.postId} title={post.title} number={1000} level={post.level} hashTag={hashTag}/>
                 ))}
                 <CreateButton />

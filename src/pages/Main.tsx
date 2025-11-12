@@ -4,7 +4,7 @@ import Tracker from "../components/Tracker";
 import PostContainer from "../components/post_overview/PostContainer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { hashtagList } from "../hooks/postApi";
+import { hashtagList } from "../apis/postApi";
 
 const MainPage: React.FC = () => {
     const navigate = useNavigate();
