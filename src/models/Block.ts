@@ -12,6 +12,7 @@ export type Language =
     | "SCALA"
     | "SWIFT"
 
+export type BlockType = "CODE" | "TEXT";
 
 // request
 export interface CodeCommand {
@@ -27,10 +28,23 @@ export interface TextCommand {
 }
 
 // response
-export interface Code {
-
+export interface BlockBase {
+    id: number;
+    type: BlockType;
 }
 
-export interface Text {
-
+export interface Code extends BlockBase {
+    type: "CODE";
+    content: string;
+    language: Language;
+    perform_time: string;
+    perform_mem: string;
+    hashtags: string[];
 }
+
+export interface Text extends BlockBase {
+    type: "TEXT";
+    content: string;
+}
+
+export type Block = Code | Text;

@@ -67,3 +67,13 @@ export const createCodeBlock = async (postId: number, block: CodeCommand): Promi
         throw error;
     }
 } 
+
+export const getPost = async (postId: number): Promise<any> => {
+    try {
+        const response = await api.get(`/posts/${postId}`);
+        return response.data?.data;
+    } catch (error) {
+        console.error('게시물 조회 실패: ', error);
+        throw error;
+    }
+}

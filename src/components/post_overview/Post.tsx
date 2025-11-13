@@ -8,12 +8,13 @@ interface PostProps {
     number: number;
     level: string;
     hashTag: string;
+    onClick?: () => void;
 }
 
-const Post: React.FC<PostProps> = ({ title, number, level, hashTag }) => {
+const Post: React.FC<PostProps> = ({ title, number, level, hashTag, onClick }) => {
     return (
         <>
-        <div className={styles.post}>
+        <div className={styles.post} onClick={onClick} style={{ cursor: onClick ? 'pointer' : 'default' }}>
             <div className={styles.title}>{title}</div>
             <div className={styles.info}>
                 <div className={styles.number}>{number}</div>
