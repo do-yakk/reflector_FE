@@ -35,7 +35,7 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
     const handlePostList = async () => {
         try {
             if (hashTag === "None") {
-                const response = await postList("");
+                const response = await postList();
                 setPosts(response.data.content);
                 return response.data.content;
             } else {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../components/post/Button.tsx";
 import { Block } from "../components/post/Block.tsx";
 import Post from "../components/post/Post.tsx";
@@ -17,6 +18,8 @@ interface PostBlock {
 }
 
 const CreatePostPage: React.FC = () => {
+  const navigate = useNavigate();
+  
   // 포스트 상태
   const [postForm, setPostForm] = useState<PostCommand>({
     title: "",
@@ -85,6 +88,7 @@ const CreatePostPage: React.FC = () => {
       }
 
       alert("저장 완료!");
+      navigate("/");
     } catch (err) {
       console.error(err);
       alert("저장 실패");

@@ -17,7 +17,7 @@ export const hashtagList = async (): Promise<any> => {
     }
 }
 
-export const postList = async (hashtag: string): Promise<any> => {
+export const postList = async (hashtag?: string): Promise<any> => {
     try {
         const response = await api.get(`/posts/sorted`, {
             params: {
