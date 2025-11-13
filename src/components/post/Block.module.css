@@ -16,7 +16,7 @@
 }
 
 .label {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1; 
     color: gray;
@@ -24,7 +24,7 @@
 }
 
 .select {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     border-radius: 6px;
     border: none;
@@ -39,7 +39,7 @@
 }
 
 .code {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
     border: none;
     border-radius: 6px;
@@ -58,10 +58,39 @@
 .hashtag {
     color: black;
     background-color: #D9D9D9;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     border-radius: 8px;
     padding: 8px 14px;
     white-space: nowrap;
     margin-right: 30px;
+}
+
+.hashtagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.hashtagItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hashtagInput {
+    min-width: 140px;
+}
+
+.removeHashtag {
+    border: none;
+    background: transparent;
+    color: #7a7a7a;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+.removeHashtag:hover {
+    color: #3a3a3a;
 }

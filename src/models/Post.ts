@@ -1,3 +1,6 @@
+import type { Block } from "./Block";
+
+
 export type Site = 'BAEKJOON' | 'PROGRAMMERS' | 'LEETCODE';
 export type Level =
   | "BAEKJOON_BRONZE"
@@ -17,7 +20,9 @@ export type Level =
   | "LEETCODE_MEDIUM"
   | "LEETCODE_HARD";
 
-export interface CreatePostRequest {
+
+// request
+export interface PostCommand {
   site: Site;
   level: Level;
   title: string;
@@ -26,4 +31,25 @@ export interface CreatePostRequest {
   output: string;
   limit_time: string;
   limit_mem: string;
+}
+
+// response
+export interface PostInfo {
+  postId: number;
+  site: Site | string;  
+  level: string;       
+  title: string;
+  content: string;
+  input: string;
+  output: string;
+  limitTime: string | null;
+  limitMem: string | null;
+  author: string;
+  createdAt: string;
+  updatedAt: string;
+  blocks: Block[];
+}
+
+export interface PostOverview {
+
 }

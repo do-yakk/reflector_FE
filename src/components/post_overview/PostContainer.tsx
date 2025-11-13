@@ -35,7 +35,7 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
     const handlePostList = async () => {
         try {
             if (hashTag === "None") {
-                const response = await postList("");
+                const response = await postList();
                 setPosts(response.data.content);
                 return response.data.content;
             } else {
@@ -56,7 +56,14 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
             </div>
             <div className={styles.postList}>
                 {posts.map((post) => (
-                    <Post key={post.postId} title={post.title} number={1000} level={post.level} hashTag={hashTag}/>
+                    <Post 
+                        key={post.postId} 
+                        title={post.title} 
+                        number={1000} 
+                        level={post.level} 
+                        hashTag={hashTag}
+                        onClick={() => navigate(`/posts/${post.postId}`)}
+                    />
                 ))}
                 <CreateButton />
             </div>

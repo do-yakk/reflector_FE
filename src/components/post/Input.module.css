@@ -14,7 +14,7 @@
 }
 
 .plain {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 400;
   border: none;
   border-radius: 6px;
@@ -29,7 +29,7 @@
 }
 
 .mini {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   border: none;
   width: 240px;
