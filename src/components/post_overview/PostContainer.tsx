@@ -34,9 +34,15 @@ const PostContainer: React.FC<PostContainerProps> = ({ hashTag }) => {
 
     const handlePostList = async () => {
         try {
-            const response = await postList(hashTag);
-            setPosts(response.data.content);
-            return response.data.content;
+            if (hashTag === "None") {
+                const response = await postList("");
+                setPosts(response.data.content);
+                return response.data.content;
+            } else {
+                const response = await postList(hashTag);
+                setPosts(response.data.content);
+                return response.data.content;
+            }
         } catch (error) {
             console.error("게시글 목록 조회 실패: ", hashTag, error);
         }

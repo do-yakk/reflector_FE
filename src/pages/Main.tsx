@@ -5,6 +5,7 @@ import PostContainer from "../components/post_overview/PostContainer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { hashtagList } from "../apis/postApi";
+import CreateButton from "../components/post_overview/CreateButton";
 
 const MainPage: React.FC = () => {
     const navigate = useNavigate();
@@ -36,9 +37,19 @@ const MainPage: React.FC = () => {
                 {/* 학습 트래커 컨테이너 */}
                 <Tracker />
                 {/* 게시글 목록 */}
-                {sortType.map((tag) => (
-                    <PostContainer key={tag} hashTag={tag} />
-                ))}
+                {sortType && sortType.length > 0 ? (
+                    <>
+                    {sortType.map((tag) => (
+                        <PostContainer key={tag} hashTag={tag} />
+                    ))}
+                    <PostContainer hashTag={"None"} />
+                    </>
+                ) : (
+                    <div className={styles.empty}>
+                        <div>지금 기록을 시작해보세요!</div>
+                        <CreateButton />
+                    </div>
+                )}
             </div>
         </>
     );
