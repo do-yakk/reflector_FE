@@ -4,7 +4,7 @@ import styles from "./ReadPost.module.css";
 import { Button } from "../components/post/Button";
 import type { PostInfo } from "../models/Post";
 import type { Block as BlockModel } from "../models/Block";
-import { getPost, getBlock } from "../apis/postApi";
+import { getPost, deletePost } from "../apis/postApi";
 
 const ReadPostPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -34,6 +34,24 @@ const ReadPostPage: React.FC = () => {
     navigate(-1);
   };
 
+  const handleEdit = () => {
+    navigate(`/posts/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    if (!id) return;
+    if (!window.confirm("정말로 이 게시물을 삭제하시겠습니까?")) {
+      return;
+    }
+    try {
+      await deletePost(Number(id));
+      alert("게시물이 삭제되었습니다.");
+      navigate("/");
+    } catch (err) {
+      alert("게시물 삭제에 실패했습니다.");
+    }
+  };
+  
   if (loading) {
     return <div className={styles.container}>로딩중...</div>;
   }
@@ -51,6 +69,12 @@ const ReadPostPage: React.FC = () => {
       </Button>
 
     <div className={styles.container}>
+
+      <div className={styles.actions}> 
+        <Button variant="save" onClick={handleEdit} className={styles.actionEdit}>수정</Button> 
+        <Button variant="save" onClick={handleDelete} className={styles.actionRemove}>삭제</Button> 
+      </div> 
+
       {/* post */}
       <div className={styles.post}>
         <div className={styles.title}>{post.title}</div>
@@ -95,7 +119,7 @@ const ReadPostPage: React.FC = () => {
               <div className={styles.codeContainer}>
                 <div className={styles.hashtagList}>
                   {block.hashtags?.map((tag, idx) => (
-                    <span key={`${block.id}-tag-${idx}`} style={{ background: "#D9D9D9", borderRadius: 8, padding: "4px 10px", fontSize: 14 }}>
+                    <span key={`${block.blockId}-tag-${idx}`} style={{ background: "#D9D9D9", borderRadius: 8, padding: "4px 10px", fontSize: 14 }}>
                       {tag}
                     </span>
                   ))}

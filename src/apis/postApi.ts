@@ -87,3 +87,63 @@ export const getBlock = async (postId: number, blockId: number): Promise<any> =>
         throw error;
     }
 }
+
+export const updatePost = async (postId:number, post: PostCommand): Promise<any> => {
+    try {
+        const response = await api.put(`/posts/${postId}`, post);
+        return response.data?.data;
+    } catch (error) {
+        console.error('게시물 수정 실패: ', error);
+        throw error;
+    }
+}
+
+export const deletePost = async (postId: number): Promise<any> => {
+    try {
+        const response = await api.delete(`/posts/${postId}`);
+        return response.data?.data;
+    } catch (error) {
+        console.error('게시물 삭제 실패: ', error);
+        throw error;
+    }
+}
+
+export const deleteBlock = async (postId: number, blockId: number): Promise<any> => {
+    try {
+        const response = await api.delete(`/blocks/${postId}/${blockId}`);
+        return response.data?.data;
+    } catch (error) {
+        console.error('블럭 삭제 실패: ', error);
+        throw error;
+    }
+}
+
+export const updateTextBlock = async (postId:number, blockId: number, block: TextCommand): Promise<any> => {
+    try {
+        const response = await api.put(`/blocks/${postId}/text/${blockId}`, block);
+        return response.data?.data;
+    } catch (error) {
+        console.error('텍스트 블럭 수정 실패: ', error);
+        throw error;
+    }
+}
+
+export const updateCodeBlock = async (postId:number, blockId: number, block: CodeCommand): Promise<any> => {
+    try {
+        const response = await api.put(`/blocks/${postId}/code/${blockId}`, block);
+        return response.data?.data;
+    } catch (error) {
+        console.error('코드 블럭 수정 실패: ', error);
+        throw error;
+    }
+}
+
+export const deleteBlockAPI = async (postId: number,blockId: number): Promise<any> => {
+    try {
+        const response = await api.delete(`/blocks/${postId}/${blockId}`);
+        return response.data?.data;
+    } catch (error) {
+        console.error('블럭 삭제 실패: ', error);
+        throw error;
+    }
+}

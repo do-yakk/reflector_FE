@@ -11,6 +11,7 @@ const AppRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/create-post" element={<CreatePostPage />} />
             <Route path="/posts/:id" element={<ReadPostPage />} />
+            <Route path="/posts/:id/edit" element={<CreatePostPage />} />
         </Routes>
     )
 };
