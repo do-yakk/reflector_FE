@@ -38,18 +38,16 @@ const MainPage: React.FC = () => {
                 <Tracker />
                 {/* 게시글 목록 */}
                 {sortType && sortType.length > 0 ? (
-                    <>
-                    {sortType.map((tag) => (
+                    sortType.map((tag) => (
                         <PostContainer key={tag} hashTag={tag} />
-                    ))}
-                    <PostContainer hashTag={"None"} />
-                    </>
+                    ))
                 ) : (
                     <div className={styles.empty}>
                         <div>지금 기록을 시작해보세요!</div>
                         <CreateButton />
                     </div>
                 )}
+                <PostContainer hashTag={"None"} />
             </div>
         </>
     );
