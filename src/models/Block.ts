@@ -29,7 +29,7 @@ export interface TextCommand {
 
 // response
 export interface BlockBase {
-    id: number;
+    blockId: number;
     type: BlockType;
 }
 
