@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import styles from "./CreatePost.module.css";
+import styles from "./ReadPost.module.css";
 import { Button } from "../components/post/Button";
 import type { PostInfo } from "../models/Post";
 import type { Block as BlockModel } from "../models/Block";
-import { getPost } from "../apis/postApi";
+import { getPost, getBlock } from "../apis/postApi";
 
 const ReadPostPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -50,73 +50,69 @@ const ReadPostPage: React.FC = () => {
         ←
       </Button>
 
-      <div className={styles.container}>
-        {/* 제목 */}
-        <div style={{ marginBottom: 12, fontSize: 28, fontWeight: 600 }}>
-          {post.title}
+    <div className={styles.container}>
+      {/* post */}
+      <div className={styles.post}>
+        <div className={styles.title}>{post.title}</div>
+
+        <div className={styles.topBar}>
+          <label className={styles.label}>사이트</label>
+          <label className={styles.value}>{post.site}</label>
+          <label className={styles.label}>난이도</label>
+          <label className={styles.value}>{post.level}</label>
         </div>
+        {post.site === "BAEKJOON" && (
+          <div className={styles.topBar}>
+            <label className={styles.label}>시간 제한</label>
+            <label className={styles.value}>{post.limitTime ?? "-"}</label>
+            <label className={styles.label}>메모리 제한</label>
+            <label className={styles.value}>{post.limitMem ?? "-"}</label>
+          </div>
+        )}
 
-        {/* 사이트 / 난이도 / 제한 */}
-        <div style={{ display: "flex", alignItems: "baseline", gap: 16, marginBottom: 10 }}>
-          <span style={{ color: "gray", fontWeight: 600, fontSize: 20 }}>사이트</span>
-          <span style={{ fontSize: 20 }}>{post.site}</span>
-          <span style={{ color: "gray", fontWeight: 600, fontSize: 20 }}>난이도</span>
-          <span style={{ fontSize: 20 }}>{post.level}</span>
-          {post.site === "BAEKJOON" && (
-            <>
-              <span style={{ color: "gray", fontWeight: 600, fontSize: 20 }}>시간 제한</span>
-              <span style={{ fontSize: 20 }}>{post.limitTime ?? "-"}</span>
-              <span style={{ color: "gray", fontWeight: 600, fontSize: 20 }}>메모리 제한</span>
-              <span style={{ fontSize: 20 }}>{post.limitMem ?? "-"}</span>
-            </>
-          )}
-        </div>
+        <div className={styles.bigLabel}>문제</div>
+        <div className={styles.content}>{post.content}</div>
 
-        {/* 문제 / 입력 / 출력 */}
-        <div style={{ color: "gray", fontWeight: 600, fontSize: 20, marginTop: 12 }}>문제</div>
-        <div style={{ fontSize: 18, whiteSpace: "pre-wrap" }}>{post.content}</div>
+        <div className={styles.bigLabel}>입력</div>
+        <div className={styles.content}>{post.input}</div>
 
-        <div style={{ color: "gray", fontWeight: 600, fontSize: 20, marginTop: 12 }}>입력</div>
-        <div style={{ fontSize: 18, whiteSpace: "pre-wrap" }}>{post.input}</div>
-
-        <div style={{ color: "gray", fontWeight: 600, fontSize: 20, marginTop: 12 }}>출력</div>
-        <div style={{ fontSize: 18, whiteSpace: "pre-wrap" }}>{post.output}</div>
+        <div className={styles.bigLabel}>출력</div>
+        <div className={styles.content}>{post.output}</div>
 
         <div className={styles.splitLine} />
+        
+      </div>
 
-        {/* 블럭들 */}
-        <div className={styles.blocks}>
+      {/* blocks */}
+      <div className={styles.blocks}>
           {post.blocks?.map((block: BlockModel) => {
             if (block.type === "TEXT") {
               return (
-                <div key={block.id} style={{ marginBottom: 12, fontSize: 18, whiteSpace: "pre-wrap" }}>
-                  {block.content}
-                </div>
+                <div className={styles.content}>{block.content}</div>
               );
             }
-            // CODE
-            return (
-              <div key={block.id} style={{ marginBottom: 16 }}>
-                <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 8, flexWrap: "wrap" }}>
+            return ( // block.type === "CODE"
+              <div className={styles.codeContainer}>
+                <div className={styles.hashtagList}>
                   {block.hashtags?.map((tag, idx) => (
                     <span key={`${block.id}-tag-${idx}`} style={{ background: "#D9D9D9", borderRadius: 8, padding: "4px 10px", fontSize: 14 }}>
                       {tag}
                     </span>
                   ))}
-                  <span style={{ color: "gray", fontWeight: 600 }}>시간</span>
+                  
+                  <label className={styles.label}>시간</label>
                   <span>{block.perform_time ?? "-"}</span>
-                  <span style={{ color: "gray", fontWeight: 600 }}>메모리</span>
+                  <label className={styles.label}>메모리</label>
                   <span>{block.perform_mem ?? "-"}</span>
-                  <span style={{ color: "gray", fontWeight: 600 }}>사용 언어</span>
+                  <label className={styles.label}>사용 언어</label>
                   <span>{block.language}</span>
                 </div>
-                <pre style={{ background: "#F0E7D1", borderRadius: 6, padding: 10, overflowX: "auto", whiteSpace: "pre-wrap" }}>
-{block.content}
-                </pre>
+                <div className={styles.code}>{block.content}</div>
               </div>
             );
           })}
         </div>
+
       </div>
     </div>
   );

@@ -77,3 +77,13 @@ export const getPost = async (postId: number): Promise<any> => {
         throw error;
     }
 }
+
+export const getBlock = async (postId: number, blockId: number): Promise<any> => {
+    try {
+        const response = await api.get(`/posts/${postId}/${blockId}`);
+        return response.data?.data;
+    } catch (error) {
+        console.error('블럭 조회 실패: ', error);
+        throw error;
+    }
+}

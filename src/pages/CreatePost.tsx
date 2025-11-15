@@ -74,7 +74,10 @@ const CreatePostPage: React.FC = () => {
 
       for (const blk of blocks) {
         if (blk.variant === "text" && blk.textForm) {
-          await createTextBlock(postId, blk.textForm);
+          const t: TextCommand = {
+            content: blk.textForm.content
+          };
+          await createTextBlock(postId, t);
         } else if (blk.variant === "code" && blk.codeForm) {
           const c: CodeCommand = {
             content: blk.codeForm.content,
